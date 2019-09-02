@@ -58,8 +58,6 @@ public class SignUpTest {
         Thread.sleep(2000);
 
         assertTrue(page.isErrorVisible("Vă rugăm să introduceți un prenume"));
-
     }
-
 
 }
