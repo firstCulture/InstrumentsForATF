@@ -1,0 +1,1357 @@
+<html class="no-js" lang="ro" style=""><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/img/logo_is7.ico"><meta name="description" content="Elefant Moldova"><meta name="keywords" content="Elefant Moldova"><title>Registration</title>
+
+
+
+
+
+<script src="//https://api-apps.antavo.com/events"></script><script src="https://connect.facebook.net/signals/config/1853275114939739?v=2.9.4&amp;r=stable" async=""></script><script src="https://connect.facebook.net/signals/plugins/inferredEvents.js?v=2.9.4" async=""></script><script src="https://connect.facebook.net/signals/config/2715358855200945?v=2.9.4&amp;r=stable" async=""></script><script src="https://connect.facebook.net/en_US/sdk.js?hash=88ab7a49f6bb6851c07d3d8318315487&amp;ua=modern_es6" async="" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script id="facebook-jssdk" src="https://connect.facebook.net/ro_RO/sdk/xfbml.customerchat.js"></script><script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en_US.tkLGB8oygGw.O/m=auth2,client/rt=j/sv=1/d=1/ed=1/am=wQE/rs=AGLTcCOVrdiUrdoKYhlUTq9WIvZT-VXTAA/cb=gapi.loaded_0" async=""></script><script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-N2GXZ77"></script><script src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/js/vendor/jquery-3.3.1.min.js"></script><script src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/js/theme.min.js?lastModified=1566823321000"></script><script type="text/javascript">
+/*
+* Translated default messages for bootstrap-select.
+*/
+(function ($) {
+$.fn.selectpicker.defaults = {
+noneSelectedText: "nimic selectat",
+noneResultsText: "Nici un rezultat compatibil {0}",
+countSelectedText: function (numSelected, numTotal) {
+return (numSelected == 1) ? "{0} element selectat" : "{0} elemente selectate";
+}, 
+selectAllText: "Selectează tot",
+deselectAllText:"Deselectațile pe toate"
+};
+})(jQuery);
+</script><script type="text/javascript">
+(function(a) {a.fn.datepicker.dates.ro = {days: ["duminică", "luni", "Marţi", "miercuri", "joi", "vineri", "sâmbătă"],daysShort: ["Duminică", "Luni", "Marți", "Miercuri", "Joi", "Vineri", "Sâmbătă"],daysMin: ["Du", "Luni", "Marți", "Noi", "Joi", "Vineri", "Sâm"],months: ["ianuarie", "februarie","Martie", "Aprilie", "Mai", "iunie", "iulie", "August", "Septembrie", "octombrie", "noiembrie", "decembrie"],monthsShort: ["Ianuarie", "februarie", "Martie", "Aprilie","Mai", "Iunie", "iulie", "august", "septembrie", "octombrie", "noiembrie", "decembrie"],today: "Astăzi",monthsTitle: "Luni",clear: "Curăță",weekStart: 1,format: "dd.MM.yyyy",titleFormat:"MM yyyy"}})(jQuery);
+</script>
+<script type="text/javascript">
+(function($) {
+$.fn.bootstrapValidator.i18n.forbiddensymbols = $.extend($.fn.bootstrapValidator.i18n.forbiddensymbols || {}, {
+'default': 'Your input contains forbidden symbols.'
+});
+$.fn.bootstrapValidator.validators.forbiddensymbols = {
+enableByHtml5: function($field) {
+return (undefined !== $field.attr('forbiddensymbols'));
+},
+/**
+* Return true if and only if the input value is a valid name
+*
+* @param {BootstrapValidator} validator Validate plugin instance
+* @param {jQuery} $field Field element
+* @param {Object} [options]
+* @returns {Boolean}
+*/
+validate: function(validator, $field, options) {
+var value = $field.val();
+if (value === '') {
+return true;
+}
+var forbiddenSymbolsRegExp = /^[^\<\>\&\@\;\%\*\#\|\_\[\]\!\?\~\+\{\}\(\)\:]*$/;
+return forbiddenSymbolsRegExp.test(value);
+}
+};
+}(window.jQuery));
+</script><script type="text/javascript">
+if (typeof RetailShop === 'undefined') {var RetailShop = {}};
+RetailShop.URLs = {};
+RetailShop.URLs.getProductComponents = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewProduct-RenderProductComponents?CatalogID=&CategoryName="; // additional params: SKU, cid, [cid, cid, ...]
+RetailShop.URLs.getRecommendedProducts = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewProductRecommendation-Start"; // params: SKU, ContextViewId
+RetailShop.URLs.getRecommendationSession = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewProductRecommendation-GetSessionData"; // no params
+RetailShop.URLs.loginPage = "https://www.elefant.md/login";
+</script><meta name="channel-locale" value="ro_MD">
+<script type="text/javascript">
+var webRootPath = "/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD";
+</script>
+
+
+
+
+<script type="text/javascript">
+// console.log("Anatavo interface login call start");
+var customerID = "";
+window.addEventListener('unload', function(event) {
+document.cookie = "antavo_redirect_url=" + window.location.href + "; path=/; domain=.elefant.ro";
+});
+var options = {
+socialShare: {
+enabled: false
+},
+setHash: {
+enabled: false
+}
+};
+if (typeof customerID !== 'undefined' && customerID !== null && customerID !== "") {
+//console.log("Customer is logged in with email 1 " + customerID);
+customerID = "";
+setTimeout(function callAntavo() { console.log("Antavo Customer is logged in with email " + customerID); (function(t, u, c) {
+var d = document, o = d.createElement(t), s = d.getElementsByTagName(t)[0];
+if (c) {
+o.onload = c;
+}
+o.src = '//' + u;
+try{
+s.parentNode.insertBefore(o, s);
+}catch(e){
+console.log("Antavo SDK could not be loaded and init was not successful !");
+}
+}('script', 'https://api-apps.antavo.com/events', function() {
+try{
+var callResp = Antavo.SDK.init('EANYZN11MTAAXFSVOGL1', customerID, options);
+// console.log("Return from antavo is " + callResp);
+}catch(e){
+//console.log("Antavo SDK could not be loaded and init was not successful !")
+}
+}))},4000);
+} else {
+setTimeout(function callAntavo() { console.log("Antavo Customer has not logged in"); (function(t, u, c) {
+var d = document, o = d.createElement(t), s = d.getElementsByTagName(t)[0];
+if (c) {
+o.onload = c;
+}
+o.src = '//' + u;
+try{
+s.parentNode.insertBefore(o, s);
+}catch(e){
+//console.log("Antavo SDK could not be loaded and init was not successful !");
+}
+}('script', 'https://api-apps.antavo.com/events', function() {
+try{
+Antavo.SDK.init('EANYZN11MTAAXFSVOGL1', null, options);
+}catch(e){
+// console.log("Antavo SDK could not be loaded and init was not successful !")
+}
+}))},3000);
+}
+</script>
+<script src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/js/address.js"></script>
+<script src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/js/elf-address.js"></script>
+<script src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/js/elf-checkout.js"></script>
+<script src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/js/vendor/multizoom.js"></script><style type="text/css">.featuredimagezoomerhidden {visibility: hidden!important;}</style>
+<script src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/js/productdetail-zoom.js"></script><script type="text/javascript">
+if (typeof RESTConfiguration === 'undefined')
+{
+var RESTConfiguration = {}
+RESTConfigurationClass = function() {
+var http = location.protocol.concat("//").concat(window.location.hostname);
+this.AuthenticationToken = null;
+this.BusinessPartnerNo = null;
+this.CustomerNo = null;
+this.Login = null;
+this.WebServerSecureURL = null;
+this.WebServerURL = null;
+this.URLMappingRESTWebadapter = null;
+this.URLMappingPipelineWebadapter = null;
+this.Domain = null;
+this.ServerGroup = null;
+this.URLIdentifier = null;
+this.LocaleID = null;
+this.CurrencyCode = null;
+this.CustomerTypeID = null;
+this.URLMappingStaticWebadapter = null;
+};
+RESTConfigurationClass.prototype = {
+get: function(index) {
+return this[index];
+},
+set: function(index, value) {
+this[index] = value;
+},
+getCurrentHost: function() {
+return window.location.origin;
+},
+getWebUrl: function() {
+return this.getCurrentHost() + this.URLMappingPipelineWebadapter + '/' + this.ServerGroup + '/' + this.Domain + '/' + this.LocaleID + '/' + this.URLIdentifier + '/' + this.CurrencyCode + '/';
+},
+getRESTUrl: function() {
+return this.getCurrentHost() + this.URLMappingRESTWebadapter + '/' + this.ServerGroup + '/' + this.Domain + '/' + this.URLIdentifier;
+},
+getBaseRESTUrl: function() {
+return this.getCurrentHost() + this.URLMappingRESTWebadapter + '/' + this.ServerGroup + '/' + this.Domain + '/-/';
+},
+getStaticUrl: function() {
+return this.URLMappingStaticWebadapter + '/' + this.ServerGroup + '/' + this.Domain + '/' + this.URLIdentifier + '/-/' + this.LocaleID + '/';
+},
+getRESTClientHost: function() {
+return this.URLMappingRESTWebadapter + '/' + this.ServerGroup;
+},
+getRESTClientPrefix: function() {
+return this.Domain + '/' + this.URLIdentifier;
+},
+getAuthenticationToken: function() {
+return this.AuthenticationToken;
+},
+getCustomerUrlPart: function(accountAdmin) {
+if (this.CustomerTypeID === 'PRIVATE' || accountAdmin === true) {
+return 'customers/' + this.CustomerNo;
+}else{
+return 'customers/' + this.CustomerNo + '/users/' + this.Login;
+}
+},
+getLocale: function(rewrite) {
+if (typeof rewrite === 'undefined') {
+return this.LocaleID;
+}else{
+return this.LocaleID.replace('_','-');
+}
+},
+getLang: function() {
+return this.LocaleID.split('_')[0];
+},
+getLocalizationsUrl: function(id) {
+if (typeof id !== 'undefined' && typeof id === 'string') {
+return this.getStaticUrl() + 'js/localizations/' + id + '-' + RESTConfiguration.LocaleID + '.json'
+}
+return this.getStaticUrl() + 'js/localizations/'
+},
+getLocalizationProperties: function(topic, locale) {
+if (typeof locale === 'undefined') {
+var locale = this.getLocale();
+}
+var promise = $.getJSON(this.getWebUrl() + 'ViewLocalization-Get?topic='+topic+'&locale='+locale).then(function(data) {
+var localizationProperties = {};
+localizationProperties[RESTConfiguration.getLocale()] = data;
+return localizationProperties;
+});
+return promise;
+}
+};
+};
+RESTConfiguration = new RESTConfigurationClass();
+
+RESTConfiguration.set('AuthenticationToken', 'encryption0@PBEWithMD5AndTripleDES:kpaFROrwyrI=|aGj6cG2xC6lHGX0FnpriBtwEcA96tfomNkOkrmHCt9RfKxbjBl6KXA==');
+
+RESTConfiguration.set('WebServerSecureURL', 'https://ish14-elfnticmprod-lv.westeurope.cloudapp.azure.com:443')
+
+RESTConfiguration.set('WebServerURL', 'http://ish14-elfnticmprod-lv.westeurope.cloudapp.azure.com:80')
+
+RESTConfiguration.set('URLMappingRESTWebadapter', '/INTERSHOP/rest')
+
+RESTConfiguration.set('URLMappingPipelineWebadapter', '/INTERSHOP/web')
+
+RESTConfiguration.set('Domain', 'elefant-elefantMD-Site')
+
+RESTConfiguration.set('ServerGroup', 'WFS')
+
+RESTConfiguration.set('URLIdentifier', 'b2c-responsive')
+
+RESTConfiguration.set('LocaleID', 'ro_MD')
+
+RESTConfiguration.set('CurrencyCode', 'MDL')
+
+RESTConfiguration.set('URLMappingStaticWebadapter', '/INTERSHOP/static')
+
+RESTConfiguration.set("MoneyFormat", {
+
+"EUR_EURO_LONG": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v €", neg: "- %v €" } },
+"MDL_MONEY_SHORT": { precision: 2, decimal: ",", thousand: ".", format: { pos: "%v", neg: "- %v" } },
+"RON_EURO_SHORT": { precision: 2, decimal: ",", thousand: ".", format: { pos: "%v", neg: "- %v" } },
+"MDL_EURO_COMBINED": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v leu", neg: "- %v leu" } },
+"EUR_MONEY_SHORT": { precision: 2, decimal: ",", thousand: ".", format: { pos: "%v", neg: "- %v" } },
+"RON_MONEY_SHORT": { precision: 2, decimal: ",", thousand: ".", format: { pos: "%v", neg: "- %v" } },
+"MDL_EURO_LONG": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v leu", neg: "- %v leu" } },
+"MDL_MONEY_INPUT": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v", neg: "-%v" } },
+"EUR_EURO_SHORT": { precision: 2, decimal: ",", thousand: ".", format: { pos: "%v", neg: "- %v" } },
+"USD_EURO_LONG": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v $", neg: "- %v $" } },
+"MDL_EURO_SHORT": { precision: 2, decimal: ",", thousand: ".", format: { pos: "%v", neg: "- %v" } },
+"USD_EURO_SHORT": { precision: 2, decimal: ",", thousand: ".", format: { pos: "%v", neg: "- %v" } },
+"USD_MONEY_SHORT": { precision: 2, decimal: ",", thousand: ".", format: { pos: "%v", neg: "- %v" } },
+"EUR_MONEY_LONG": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v €", neg: "- %v €" } },
+"EUR_EURO_COMBINED": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v €", neg: "- %v €" } },
+"EUR_MONEY_INPUT": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v", neg: "-%v" } },
+"USD_EURO_COMBINED": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v $", neg: "- %v $" } },
+"USD_MONEY_INPUT": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v", neg: "-%v" } },
+"RON_EURO_LONG": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v lei", neg: "- %v lei" } },
+"RON_MONEY_LONG": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v lei", neg: "- %v lei" } },
+"RON_MONEY_INPUT": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v", neg: "-%v" } },
+"USD_MONEY_LONG": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v $", neg: "- %v $" } },
+"MDL_MONEY_LONG": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v leu", neg: "- %v leu" } },
+"RON_EURO_COMBINED": { precision: 1, decimal: ",", thousand: ".", format: { pos: "%v lei", neg: "- %v lei" } }
+});
+
+RESTConfiguration.set("DateFormat", {
+
+"DATE_INPUT": "dd.MM.yyyy"
+,
+"TIME_INPUT": "HH:mm"
+,
+"DATE_TIME_INPUT": "dd.MM.yyyy HH:mm"
+,
+"DATE_SHORT": "d.M.yyyy"
+,
+"DATE_TIME": "HH:mm:ss"
+,
+"DATE_LONG": "dd.MM.yyyy"
+
+});
+</script><script type="text/javascript" src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/elefant/ro_MD/System/Exponea/exponea_13.js"></script><script type="text/javascript" async="" src="https://api.infinario.com/js/infinario.min.js"></script><link rel="stylesheet" type="text/css" media="all" href="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/css/theme.min.css?lastModified=1566823324000"><style type="text/css">.slick-prev{
+left: -25px!important;
+}
+
+.slick-next{
+right: -25px!important;
+}
+
+.header-utility{
+float: none!important;
+padding: 0 20px!important;
+}
+
+.product-label-topseller {
+    background: url('/INTERSHOP/static/WFS/elefant-Site/-/elefant/ro_RO/img/icons/product_sprite.png') no-repeat -246px -73px!important;
+    top: 185px!important;
+}
+
+button.close {
+    padding: 0 7px!important;
+}
+
+.filter-dialog .modal-header {
+    padding: 15px 23px 15px 30px!important;
+}
+
+a.transaction-link {
+    display: none;
+}
+
+
+@media screen and (min-width: 768px)
+{
+ .main-navigation ul.main-navigation-list li>ul.category-level1 {
+   transition-delay: .5s!important;
+ }
+ .dropdown-menu {
+  margin-left: -14px!important;
+ }
+}</style><script type="text/javascript">
+window.cssDir = "/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/css/";
+window.imgDir = "/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/images/";
+</script>
+
+
+
+
+
+
+
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N2GXZ77');</script>
+<!-- End Google Tag Manager --> <script type="text/javascript" async="" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><link type="text/css" rel="stylesheet" media="screen" href="//cdn.segmentify.com/b9f842b7-c7f4-499e-9e47-9891d12cc7e7/segmentify.css"><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_v2_mobile_chat_started{0%{opacity:0;top:20px}100%{opacity:1;top:0}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_v2_mobile_chat_started{0%{opacity:1;top:0}100%{opacity:0;top:20px}}@keyframes fb_customer_chat_bubble_bounce_in_animation{0%{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70%{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100%{transform:scale(1, 1)}}</style><style></style></head>
+<body class="bg-grey"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-block cc-bottom cc-color-override-1827372716 " style=""><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">Acest site foloseste cookies. Continuarea navigarii presupune ca esti de acord cu utilizarea cookie-urilor. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://www.elefant.md/cookies-cms-page.helpdesk.cookies" rel="noopener noreferrer nofollow" target="_blank">Afla detalii</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Am inteles</a></div><!--googleon: all--></div><noscript>
+<iframe src="//www.googletagmanager.com/ns.html?id=GTM-N2GXZ77"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript><noscript>
+<div class="system-notification">
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<div class="system-notification-icon">
+<span class="glyphicon glyphicon-warning-sign"></span>
+</div>
+<div class="system-notification-text">
+<h2>Se pare că browser-ul dvs. a dezactivat JavaScript.</h2>
+<p>Acest site necesită browser-ul să fie activat JavaScript.</p>
+<p>Vă rugăm să activați JavaScript și să reîncărcați această pagină.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</noscript><div id="disabled-cookies-warning" style="display: none;">
+<div class="system-notification">
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<div class="system-notification-icon">
+<span class="glyphicon glyphicon-warning-sign"></span>
+</div>
+<div class="system-notification-text">
+<div class="h2">Se pare că browser-ul dvs. a dezactivat cookie-urile.</div>
+<p>Site-ul necesită browser-ul pentru a activa cookie-urile pentru a se autentifica.</p>
+<p>Vă rugăm să activați cookie-urile și reîncărcați această pagină.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+(function cookieTest(){
+var name = 'cookie_test';
+document.cookie = name + '=;';
+if (document.cookie.indexOf(name) == -1) {
+$('#disabled-cookies-warning').show();
+}
+document.cookie = name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+})();
+</script>
+</div><header data-testing-id="page-header" class="top"><div class="top-header">
+<nav class="container">
+<div class="row">
+<div class="col-md-12 hidden-xs"><div class="utils row">
+<div class="utils-element"><i class="material-icons">arrow_forward</i> <span>Acum si livrare nationala prin curier rapid!</span></div>
+</div></div>
+</div>
+<div class="row header-row" id="HeaderRow">
+<div class="col-sm-3 logo-wrapper hidden-xs"><a rel="home" href="http://www.elefant.md/"><img src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/elefant-elefantMD/ro_MD/logo.png" alt="Logo"></a></div>
+<div class="visible-xs"><a rel="home" href="http://www.elefant.md/" class="mobile-logo"><img src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/elefant-elefantMD/ro_MD/logo%402x.png" alt="Logo"></a></div>
+<div class="visible-xs pull-right">
+<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#globalnav">
+<span class="sr-only">Modifică navigarea&nbsp;</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+<div class="col-md-9 header-search-container-wrapper">
+<div class="col-sm-4 col-md-7 search-container header-search-container hidden-xs"><form method="post" action="https://www.elefant.md/search" role="search" class="search clearfix suggest" name="SearchBox_Header"><input autocomplete="off" type="text" name="SearchTerm" class="form-control searchTerm" data-suggesturl="https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSuggestSearch-Suggest?MaxAutoSuggestResults=10" placeholder="Căutați cuvânt cheie, codul de produs, tip produs">
+<button class="btn-search btn btn-primary" type="submit" name="search" title="Începe căutarea"><span class="glyphicon glyphicon-search"></span></button>
+<input type="hidden" name="search" value="">
+<ul class="search-suggest-results">
+</ul></form></div>
+<ul class="user-links">
+<li><a data-toggle="collapse" class="my-account-link hidden-xs" href="#account-layer" rel="nofollow">
+<span class="login-prompt">Conectare</span>
+<i class="material-icons">face</i>
+<span class="super logged-out-dot"></span>
+</a>
+<div class="collapse" id="account-layer">
+<h4>Contul Meu</h4>
+<i class="material-icons">face</i> 
+<a class="my-account-login btn btn-primary btn-block" href="https://www.elefant.md/login" rel="nofollow">Conectare</a><a class="btn btn-default btn-block" href="https://www.elefant.md/new-account?TargetPipeline=ViewProfileSettings-ViewProfile">Creează cont</a>
+</div>
+<a class="my-account-link my-account-login visible-xs" href="https://www.elefant.md/login" rel="nofollow">
+<i class="material-icons">face</i>
+<span class="super logged-out-dot"></span>
+</a></li>
+<li><a href="https://www.elefant.md/login?TargetPipeline=ViewWishlist-ViewAll" class="" rel="nofollow">
+<i class="material-icons">favorite</i>
+</a></li>
+<li data-ajax-content="https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewMiniCart-Status" class="hidden-xs"><div class="quick-cart-link hidden-xs"><a data-toggle="collapse" href="#miniCart"><i class="material-icons">
+shopping_cart
+</i>
+<span class="super cart-quantity">0</span>
+<script>$('.mobile-cart-counter').html('0');</script>
+</a>
+<div class="mini-cart collapse" id="miniCart">
+<h5>Cos<span class="products pull-right">(0 produse)</span>
+</h5>Coșul de cumpărături este gol.</div> </div></li>
+<li class="visible-xs">
+<a href="https://www.elefant.md/cart">
+<i class="material-icons">
+shopping_cart
+</i>
+</a>
+<div class="mobile-cart-counter">0</div>
+</li>
+</ul>
+<div class="header-utility"><div class="utils row hidden-sm hidden-md hidden-lg visible-xs">
+<div class="utils-element"><i class="material-icons">arrow_forward</i> <span>Acum si livrare nationala prin curier rapid!</span></div>
+</div></div>
+</div>
+</div>
+<div class="row mobile-search-row visible-xs" id="MobileSearchRow">
+<div class="col-xs-12 header-search-container-wrapper">
+<div class="col-sm-4 col-md-7 search-container header-search-container"><form method="post" action="https://www.elefant.md/search" role="search" class="search clearfix suggest" name="SearchBox_Header"><input autocomplete="off" type="text" name="SearchTerm" class="form-control searchTerm" data-suggesturl="https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSuggestSearch-Suggest?MaxAutoSuggestResults=10" placeholder="Căutați cuvânt cheie, codul de produs, tip produs">
+<button class="btn-search btn btn-primary" type="submit" name="search" title="Începe căutarea"><span class="glyphicon glyphicon-search"></span></button>
+<input type="hidden" name="search" value="">
+<ul class="search-suggest-results">
+</ul></form></div>
+</div>
+</div>
+</nav>
+</div>
+<div class="bottom-header">
+<div class="global-nav collapse navbar-collapse" id="globalnav">
+<div class="container">
+<div class="row">
+<div class="main-navigation" role="navigation">
+<ul class="navbar-nav main-navigation-list"><ul class="navbar-nav main-navigation-list" style="padding: 0!important;">
+<li id="mobileCat-CartiCatalog" class="dropdown visible-sm visible-md visible-lg"><a href="/list/carti" data-testing-id="CartiCatalog-link">Carte</a><a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#mobileCat-CartiCatalog"><span class="glyphicon glyphicon-plus"></span></a>
+<ul class="category-level1 dropdown-menu">
+<li class="main-navigation-level1-item"><a href="/list/carti/carte">Carte</a>
+<ul class="category-level2">
+<li class="main-navigation-level1-item"><a href="/topuri-fictiune-elefant-cms-zilele-devoratorilor-de-carti-topuri-fictiune-elefant">Targ de carte</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte">Bestseller</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/arta-arhitectura-si-fotografie">Arta, arhitectura si fotografie</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/biografii-si-memorii/biografii">Biografii si memorii</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/business-economie-finante">Business, economie, finante</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/carti-pentru-copii">Carti pentru copii</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/dictionare-si-enciclopedii">Dictionare si Enciclopedii</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/diete-si-fitness/fitness-si-frumusete">Diete si fitness</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/fictiune?sort=popularitate&amp;dir=desc">Fictiune</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/filosofie">Filologie, Filosofie</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/gastronomie">Gastronomie</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/ghiduri-de-calatorie-harti">Ghiduri de calatorie, harti</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/hobby-timp-liber">Hobby, timp liber</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/istorie">Istorie</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/limbi-straine">Limbi straine</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/parenting-si-familie">Parenting si familie</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/psihologie-pedagogie">Psihologie, Pedagogie</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/religie/crestinism">Religie</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/self-help?sort=popularitate&amp;dir=desc">Self Help</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/sociologie-stiinte-politice">Sociologie, stiinte politice</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/spiritualitate-ezoterism">Spiritualitate, ezoterism</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte/stiinte?sort=popularitate&amp;dir=desc">Stiinte</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte?sort=popularitate&amp;dir=desc">Vezi toate</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/carti/filters/autor-Jojo+Moyes_or_Agnes+Martin-Lugand_or_Yuval+Noah+Harari_or_Irina+Binder_or_Elena+Ferrante_or_Anna+Todd_or_John+C.+Maxwell_or_Jill+Tomlinson_or_Alec+Blenche_or_Daniel+Goleman">Top 10 autori</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/autor-Jojo+Moyes">Jojo Moyes</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/autor-Agnes+Martin-Lugand">Agnes Martin-Lugand</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/autor-Yuval+Noah+Harari">Yuval Noah Harari</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/autor-Irina+Binder">Irina Binder</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/autor-Elena+Ferrante">Elena Ferrante</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/autor-Anna+Todd">Anna Todd</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/autor-John+C.+Maxwell">John C. Maxwell</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/autor-Jill+Tomlinson">Jill Tomlinson</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/autor-Alec+Blenche">Alec Blenche</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/autor-Daniel+Goleman">Daniel Goleman</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/carti/filters/brand-CORINTeens_or_Corint_or_Corint+Educational_or_Corint+Junior_or_Curtea+Veche_or_Epica_or_Humanitas_or_Humanitas+Educational_or_Humanitas+Fiction_or_Humanitas+Multimedia_or_Litera_or_Nemira_or_Polirom_or_RAO_or_Lifestyle+Publishing_or_Pandora+M_or_Trei_or_Univers_or_Univers+Enciclopedic+Gold">Top 10 edituri</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/brand-Litera">Litera</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/brand-Lifestyle+Publishing_or_Pandora+M_or_Trei">Trei</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/brand-Humanitas_or_Humanitas+Educational_or_Humanitas+Fiction_or_Humanitas+Multimedia">Humanitas</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/brand-Polirom">Polirom</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/brand-Curtea+Veche">Curtea Veche</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/brand-RAO">Rao</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/brand-Nemi_or_Nemira">Nemira</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/brand-CORINTeens_or_Corint_or_Corint+Educational_or_Corint+Junior">Corint</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/brand-Univers">Univers</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/filters/brand-Epica">Epica</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="mobileCat-CartiCatalog" class="dropdown visible-sm visible-md visible-lg"><a href="/list/carti" data-testing-id="CartiCatalog-link">Carte Straina</a><a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#mobileCat-CartiCatalog"><span class="glyphicon glyphicon-plus"></span></a>
+<ul class="category-level1 dropdown-menu">
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina">Foreign Books</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina">Bestseller</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/biography-literature-literary-studies">Biography, literature &amp; literary studies</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/children-s-teenage-educational">Children's, Teenage &amp; Educational</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/computing-information-technology">Computing &amp; information technology</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/earth-sciences-geography-environment-planning">Earth sciences, geography, environment, planning</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/economics-finance-business-management">Economics, finance, business &amp; management</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/fiction-related-items">Fiction &amp; related items</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/graphic-novels-comic-books-cartoons">Graphic novels, comic books, cartoons</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/health-relationships-personal-development">Health, relationships &amp; personal development</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/history-archaeology">History &amp; archaeology</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/language-linguistics">Language &amp; linguistics</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/law">Law</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/lifestyle-hobbies-leisure">Lifestyle, hobbies &amp; leisure</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/mathematics-science">Mathematics &amp; science</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/medicine-nursing">Medicine &amp; nursing</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/philosophy-religion">Philosophy &amp; religion</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/reference-information-interdisciplinary-subjects">Reference, information &amp; interdisciplinary subjects</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/society-social-sciences">Society &amp; social sciences</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/sports-active-outdoor-recreation">Sports &amp; active outdoor recreation</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/technology-engineering-agriculture">Technology, engineering, agriculture</a></li>
+<li class="main-navigation-level2-item"><a href="/list/carti/carte-straina/the-arts">The arts</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina">Vezi toate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<!-- test categorii -->
+<li id="mobileCat-CarteCatalog" class="dropdown visible-xs"><a href="/list/carti" data-testing-id="CarteCatalog-link">Carte</a> <a class="dropdown-toggle" data-toggle="dropdown" data-target="#mobileCat-CarteCatalog"> <span class="glyphicon glyphicon-plus"></span> </a>
+<ul class="category-level1 dropdown-menu">
+<li class="main-navigation-level1-item"><a href="/topuri-fictiune-elefant-cms-zilele-devoratorilor-de-carti-topuri-fictiune-elefant">Targ de carte</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte">Bestseller</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/fictiune?sort=popularitate&amp;dir=desc">Arta, arhitectura si fotografie</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/biografii-si-memorii">Biografii si memorii</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/business-economie-finante">Business, economie, finante</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/carti-pentru-copii">Carti pentru copii</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/dictionare-si-enciclopedii">Dictionare si Enciclopedii</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/diete-si-fitness">Diete si fitness</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/fictiune?sort=popularitate&amp;dir=desc">Fictiune</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/filosofie">Filologie, Filosofie</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/gastronomie">Gastronomie</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/ghiduri-de-calatorie-harti">Ghiduri de calatorie, harti</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/hobby-timp-liber">Hobby, timp liber</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/istorie">Istorie</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/limbi-straine">Limbi straine</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/parenting-si-familie">Parenting si familie</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/psihologie-pedagogie">Psihologie, Pedagogie</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/religie">Religie</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/self-help?sort=popularitate&amp;dir=desc">Self Help</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/sociologie-stiinte-politice?sort=noutati&amp;dir=desc">Sociologie, stiinte politice</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/spiritualitate-ezoterism">Spiritualitate, ezoterism</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte/stiinte?sort=popularitate&amp;dir=desc">Stiinte</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti">Vezi toate</a></li>
+</ul>
+</li>
+<!-- test categorii --> <!-- test categorii -->
+<li id="mobileCat-CarteStrainaCatalog" class="dropdown visible-xs"><a href="/list/carti" data-testing-id="CarteStrainaCatalog-link">Carte Straina</a> <a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#mobileCat-CarteStrainaCatalog"> <span class="glyphicon glyphicon-plus"></span> </a>
+<ul class="category-level1 dropdown-menu">
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina">Bestseller</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/biography-literature-literary-studies">Biography, literature &amp; literary studies</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/children's-teenage-educational">Children's, Teenage &amp; Educational</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/computing-information-technology">Computing &amp; information technology</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/earth-sciences-geography-environment-planning">Earth sciences, geography, environment, planning</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/economics-finance-business-management">Economics, finance, business &amp; management</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/fiction-related-items">Fiction &amp; related items</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/graphic-novels-comic-books-cartoons">Graphic novels, comic books, cartoons</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/health-relationships-personal-development">Health, relationships &amp; personal development</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/history-archaeology">History &amp; archaeology</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/language-linguistics">Language &amp; linguistics</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/law">Law</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/lifestyle-hobbies-leisure">Lifestyle, hobbies &amp; leisure</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/mathematics-science">Mathematics &amp; science</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/medicine-nursing">Medicine &amp; nursing</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/philosophy-religion">Philosophy &amp; religion</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/reference-information-interdisciplinary-subjects">Reference, information &amp; interdisciplinary subjects</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/society-social-sciences">Society &amp; social sciences</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/sports-active-outdoor-recreation">Sports &amp; active outdoor recreation</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/technology-engineering-agriculture">Technology, engineering, agriculture</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina/the-arts">The arts</a></li>
+<li class="main-navigation-level1-item"><a href="/list/carti/carte-straina">Vezi toate</a></li>
+</ul>
+</li>
+<!-- test categorii -->
+<li id="mobileCat-ParfumuriCatalog" class="dropdown"><a href="/list/parfumuri" data-testing-id="ParfumuriCatalog-link">Parfumuri</a><a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#mobileCat-ParfumuriCatalog"><span class="glyphicon glyphicon-plus"></span></a>
+<ul class="category-level1 dropdown-menu">
+<li class="main-navigation-level1-item"><a href="/list/parfumuri/filters/sex-Femei_or_Unisex">Parfumuri pentru femei</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Femei_or_Unisex">Bestsellers</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Femei_or_Unisex?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/apa-de-parfum/filters/sex-Femei_or_Unisex">Apa de parfum</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/apa-de-toaleta/filters/sex-Femei_or_Unisex">Apa de toaleta</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/seturi-cadou/filters/sex-Femei_or_Unisex">Seturi cadou</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/parfumuri/filters/sex-Femei_or_Unisex/brand-Cartier_or_Chloe_or_Christian%2BDior_or_Elie%2BSaab_or_Giorgio%2BArmani_or_Gucci_or_Guerlain_or_Hermes_or_Lancome_or_Narciso%2BRodriguez_or_Viktor%2B%2526%2BRolf_or_Yves%2BSaint%2BLaurent?GroupSize.brand=0">Premium Brands femei</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Femei_or_Unisex/brand-Calvin+Klein">Calvin Klein</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Femei_or_Unisex/brand-Burberry">Burberry </a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Femei_or_Unisex/brand-Versace">Versace</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Femei_or_Unisex/brand-Hugo+Boss?sort=popularitate&amp;dir=desc">Hugo Boss</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/brand-Elizabeth+Arden">Elizabeth Arden</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/parfumuri/filters/sex-Barbati">Parfumuri pentru barbati</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Barbati">Bestsellers</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Barbati?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/apa-de-parfum/filters/sex-Barbati?sort=popularitate&amp;dir=desc">Apa de parfum</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/apa-de-toaleta/filters/sex-Barbati?sort=popularitate&amp;dir=desc">Apa de toaleta</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/seturi-cadou/filters/sex-Barbati">Seturi cadou</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/parfumuri/filters/sex-Barbati/brand-Cartier_or_Chloe_or_Christian%2BDior_or_Elie%2BSaab_or_Giorgio%2BArmani_or_Gucci_or_Guerlain_or_Hermes_or_Lancome_or_Narciso%2BRodriguez_or_Viktor%2B%2526%2BRolf_or_Yves%2BSaint%2BLaurent?GroupSize.brand=0">Premium Brands barbati</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Barbati/brand-Calvin+Klein">Calvin Klein</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Barbati/brand-Burberry">Burberry</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Barbati/brand-Versace">Versace</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Barbati/brand-Hugo+Boss">Hugo Boss</a></li>
+<li class="main-navigation-level2-item"><a href="/list/parfumuri/filters/sex-Barbati/brand-Paco+Rabanne">Paco Rabanne</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="mobileCat-CosmeticeCatalog" class="dropdown"><a href="/list/cosmetice" data-testing-id="CosmeticeCatalog-link">Cosmetice</a><a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#mobileCat-CosmeticeCatalog"><span class="glyphicon glyphicon-plus"></span></a>
+<ul class="category-level1 dropdown-menu">
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/filters/brand-Dermacol_or_IDC+INSTITUTE_or_L+Oreal+Paris_or_LOreal+Professionnel_or_Makeup+Revolution+London_or_Revlon_or_Revlon+Flex">Top branduri cosmetice</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/filters/brand-Makeup+Revolution+London">Makeup Revolution London</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/filters/brand-IDC+INSTITUTE">IDC Institute</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/filters/brand-Revlon">Revlon</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/filters/brand-L+Oreal+Paris">L'Oreal Paris</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/filters/brand-LOreal+Professionnel">L'Oreal Professionnel</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/filters/brand-Dermacol">Dermacol</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/machiaj">Machiaj</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/machiaj/seturi-si-truse-de-machiaj">Seturi si truse de machiaj</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/machiaj/ten">Ten</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/machiaj/ochi">Ochi</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/machiaj/buze">Buze </a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/machiaj/unghii">Unghii</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/machiaj/pensule-si-accesorii">Pensule si accesorii</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/ingrijire-ten">Ingrijire ten</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-ten/curatare-si-demachiere">Curatare si demachiere</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-ten/hidratare">Hidratare</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-ten/tratament">Tratament</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-ten/seturi-de-ingrijire-ten">Seturi ingrijire ten</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/ingrijire-par">Ingrijire par</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-par/sampon-si-balsam">Sampon si balsam</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-par/masca-si-tratament">Masca si tratament</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-par/produse-styling">Produse styling</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-par/colorare">Colorare</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-par/accesorii-par">Accesorii</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/ingrijire-corp">Ingrijire corp</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-corp/produse-de-baie">Produse de baie</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-corp/creme-si-lotiuni">Creme si lotiuni</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-corp/tratament">Tratament</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-corp/deodorante-si-antiperspirante">Deodorante si antiperspirante</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-corp/produse-epilare">Produse epilare</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-corp/protectie-solara">Protectie solara</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/ingrijire-corp/seturi-ingrijire-corp">Seturi ingrijire corp</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/igiena-dentara">Igiena dentara</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/igiena-dentara/apa-de-gura">Apa de gura</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/igiena-dentara/pasta-de-dinti">Pasta de dinti</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/igiena-dentara/periute-de-dinti">Periute de dinti</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/igiena-intima">Igiena intima</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/igiena-intima/absorbante-si-tampoane">Absorbante si tampoane</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/igiena-intima/geluri-intime">Geluri intime</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/igiena-sexuala">Igiena sexuala</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/igiena-sexuala/lubrifianti">Lubrifianti</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/igiena-sexuala/prezervative">Prezervative</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/seturi-cadou">Seturi cadou</a></li>
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/filters/brand-AZBANE_or_Bema_or_Bio+Mer_or_Bioderma_or_La+Dispensa_or_NAOBAY_or_Naturys">Naturale si organice</a></li>
+<li class="main-navigation-level1-item"><a href="/list/cosmetice/cosmetice-barbati">Cosmetice barbati</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/cosmetice-barbati/ingrijire-ten-si-barba">Ingijire ten si barba</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/cosmetice-barbati/produse-barbierit">Produse barbierit</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/cosmetice-barbati/produse-styling">Produse styling</a></li>
+<li class="main-navigation-level2-item"><a href="/list/cosmetice/cosmetice-barbati/ingrijire-corp">Ingrijire corp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="mobileCat-CeasuriCatalog" class="dropdown"><a href="/list/ceasuri" data-testing-id="CeasuriCatalog-link">Ceasuri</a><a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#mobileCat-CeasuriCatalog"><span class="glyphicon glyphicon-plus"></span></a>
+<ul class="category-level1 dropdown-menu">
+<li class="main-navigation-level1-item"><a href="/list/ceasuri/filters/sex-Femei">Ceasuri de dama</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Femei?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Femei/brand-Esprit_or_Festina_or_Fossil_or_Guess_or_Michael+Kors_or_Skagen_or_Stuhrling+Original_or_Timex">Bestsellers</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Femei">Vezi toate</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/ceasuri/filters/brand-Cluse_or_Daniel+Klein_or_Esprit_or_Fossil_or_Guess_or_Timex">Top branduri Ceasuri de Dama</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Femei/brand-Fossil">Fossil</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Femei/brand-Guess">Guess</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Femei/brand-Esprit">Esprit</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Femei/brand-Cluse">Cluse</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Femei/brand-Timex">Timex</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Femei/brand-Daniel+Klein">Daniel Klein</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/ceasuri/filters/sex-Barbati">Ceasuri barbatesti</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Barbati?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Barbati_or_Unisex/brand-Esprit_or_Festina_or_Fossil_or_Guess_or_Michael+Kors_or_Skagen_or_Stuhrling+Original_or_Timex">Bestsellers</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Barbati_or_Unisex">Vezi toate</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/ceasuri/filters/sex-Barbati_or_Unisex">Top branduri Ceasuri Barbatesti</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Barbati_or_Unisex/brand-Fossil">Fossil</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Barbati_or_Unisex/brand-Timex">Timex</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Barbati_or_Unisex/brand-Casio">Casio</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Barbati_or_Unisex/brand-Festina">Festina</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Barbati_or_Unisex/brand-Guess">Guess</a></li>
+<li class="main-navigation-level2-item"><a href="/list/ceasuri/filters/sex-Barbati_or_Unisex/brand-Stuhrling+Original">Stuhrling Original </a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/filter?CatalogCategoryID=&amp;SearchParameter=%26%40QueryTerm%3Dset%2B%26ContextCategoryUUID%3DL_UKKgAHuywAAAFm5.kNuosq%26sex%3DFemei&amp;PageSize=60&amp;SortingAttribute=&amp;SearchTerm=set+">Seturi cadou pentru ea</a></li>
+<li class="main-navigation-level1-item"><a href="/filter?CatalogCategoryID=&amp;SearchParameter=%26%40QueryTerm%3Dset%2B%26ContextCategoryUUID%3DL_UKKgAHuywAAAFm5.kNuosq%26sex%3DBarbati_or_Unisex&amp;PageSize=60&amp;SortingAttribute=&amp;SearchTerm=set+">Seturi cadou pentru el</a></li>
+</ul>
+</li>
+<li id="mobileCat-JucariiCopiiBebeCatalog" class="dropdown"><a href="/list/jucarii-copii-bebe" data-testing-id="JucariiCopiiBebeCatalog-link">Jucarii</a><a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#mobileCat-JucariiCopiiBebeCatalog"><span class="glyphicon glyphicon-plus"></span></a>
+<ul class="category-level1 dropdown-menu">
+<li class="main-navigation-level1-item"><a href="/list/jucarii-copii-bebe/jucarii">Jucarii</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii">Bestsellers</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/sex-Fete">Pentru fete</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/sex-Baieti">Pentru baieti</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/jucarii-bebe">Pentru bebelusi</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/jucarii-copii-bebe/jucarii/lego?GroupSize.brand=0">LEGO</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-duplo?GroupSize.brand=0">LEGO DUPLO</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-city?GroupSize.brand=0">LEGO City</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-friends?GroupSize.brand=0">LEGO Friends</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-jurassic-world">LEGO Jurassic World</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-ninjago?GroupSize.brand=0">LEGO Ninjago</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-star-wars?GroupSize.brand=0">LEGO Star Wars</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-technic?GroupSize.brand=0">LEGO Technic</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-minecraft?GroupSize.brand=0">LEGO Minecraft</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-super-heroes?GroupSize.brand=0">LEGO Super Heroes</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-juniors?GroupSize.brand=0">LEGO Juniors</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-classic?GroupSize.brand=0">LEGO Classic</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-creator?GroupSize.brand=0">LEGO Creator</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-movie-2?GroupSize.brand=0">LEGO Movie 2</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/lego/lego-speed-champions">LEGO Speed Champions</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Barbie_or_Bullyland_or_Castorland_or_Clementoni_or_CubicFun_or_Disney_or_Disney+Pixar_or_Fisher+Price_or_Hot+Wheels_or_My+Little+Pony_or_Nerf_or_Play-Doh_or_Playmobil_or_Ravensburger_or_Spin+Master_or_Trefl">Branduri populare</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Disney">Disney</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Fisher+Price">Fisher Price</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Clementoni">Clementoni</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Barbie">Barbie</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-My+Little+Pony?GroupSize.brand=0">My Little Pony</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Play-Doh?GroupSize.brand=0">Play-Doh</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Nerf?GroupSize.brand=0">Nerf</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Hot+Wheels?GroupSize.brand=0">Hot Wheels</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Bullyland">Bullyland</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Castorland">Castorland</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Trefl?GroupSize.brand=0">Trefl</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Ravensburger?GroupSize.brand=0">Ravensburger</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-CubicFun">CubicFun</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Spin+Master?GroupSize.brand=0">Spin Master</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/filters/brand-Playmobil?GroupSize.brand=0">Playmobil</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/jucarii-copii-bebe/jucarii">Categorii</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii">Bestsellers</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/jocuri">Jocuri</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/arta-si-indemanare?GroupSize.brand=0">Arta si indemanare</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/jucarii-bebe?GroupSize.brand=0">Jucarii bebe</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/jucarii-educative?GroupSize.brand=0">Jucarii educative</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/papusi-si-accesorii?GroupSize.brand=0">Papusi si accesorii</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/masinute-trenulete-si-avioane">Masinute, trenulete si avioane</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/figurine?GroupSize.brand=0">Figurine</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/jucarii-de-plus?GroupSize.brand=0">Jucarii de plus</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/jucarii-de-rol?GroupSize.brand=0">Jucarii de rol</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/jucarii-electronice?GroupSize.brand=0">Jucarii electronice</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/puzzle-uri?GroupSize.brand=0">Puzzle-uri</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/seturi-de-constructie?GroupSize.brand=0">Seturi de constructie</a></li>
+<li class="main-navigation-level2-item"><a href="/list/jucarii-copii-bebe/jucarii/accesorii-calatorie?GroupSize.brand=0">Accesorii calatorie</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="mobileCat-FashionCatalog" class="dropdown"><a href="/list/fashion" data-testing-id="FashionCatalog-link">Fashion</a><a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#mobileCat-FashionCatalog"><span class="glyphicon glyphicon-plus"></span></a>
+<ul class="category-level1 dropdown-menu">
+<li class="main-navigation-level1-item"><a href="/list/fashion/genti-si-accesorii">Genti</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/fashion/genti-si-accesorii/genti">Bestsellers</a></li>
+<li class="main-navigation-level2-item"><a href="/list/fashion/genti-si-accesorii/genti?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/fashion/genti-si-accesorii/genti/de-mana">Genti de mana</a></li>
+<li class="main-navigation-level2-item"><a href="/list/fashion/genti-si-accesorii/genti/de-umar">Genti de umar</a></li>
+<li class="main-navigation-level2-item"><a href="/list/fashion/genti-si-accesorii/genti/rucsac">Rucsacuri</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item visible-sm visible-md visible-lg"><a href="/list/fashion/genti-si-accesorii/genti/filters/brand-Francesca+Moretti_or_MAYA_or_Ribelle+">Top brands</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/fashion/genti-si-accesorii/filters/brand-Ribelle+">Ribelle</a></li>
+<li class="main-navigation-level2-item"><a href="/list/fashion/genti-si-accesorii/filters/brand-Francesca+Moretti">Francesca Moretti</a></li>
+<li class="main-navigation-level2-item"><a href="/list/fashion/genti-si-accesorii/filters/brand-MAYA">Maya</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/fashion/ochelari">Ochelari</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/fashion/ochelari">Bestsellers</a></li>
+<li class="main-navigation-level2-item"><a href="/list/fashion/ochelari?sort=noutati&amp;dir=desc">Noutati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/fashion/ochelari/ochelari-de-soare/filters/sex-Femei">Ochelari de soare femei</a></li>
+<li class="main-navigation-level2-item"><a href="/list/fashion/ochelari/ochelari-de-soare/filters/sex-Barbati">Ochelari de soare Barbati</a></li>
+<li class="main-navigation-level2-item"><a href="/list/fashion/ochelari/rame-ochelari">Rame ochelari</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="mobileCat-NutritieCatalog" class="dropdown"><a href="/list/nutritie" data-testing-id="NutritieCatalog-link">Nutritie</a> <a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#mobileCat-NutritieCatalog"><span class="glyphicon glyphicon-plus"></span></a>
+<ul class="category-level1 dropdown-menu">
+<li class="main-navigation-level1-item"><a href="/list/nutritie/accesorii-sportive">Accesorii Sportive</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/nutritie/accesorii-sportive/imbracaminte">Imbracaminte</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/accesorii-sportive/shaker">Shaker</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/nutritie/alimente-batoane">Alimente &amp; Batoane</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/nutritie/alimente-batoane/alimente-proteice">Alimente Proteice</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/alimente-batoane/batoane-si-gustari?sort=noutati&amp;dir=desc">Batoane si Gustari</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/nutritie/minerale">Minerale</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/nutritie/minerale/calciu">Calciu</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/minerale/complexe">Complexe</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/minerale/fier">Fier</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/minerale/magneziu">Magneziu</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/minerale/seleniu">Seleniu</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/minerale/zinc">Zinc</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/minerale/16868"></a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/nutritie/proteine">Proteine</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/nutritie/proteine/plant-vegan-protein?sort=noutati&amp;dir=desc">Plant &amp; Vegan Protein</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/proteine/whey-protein">Whey Protein</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/nutritie/superfoods">Superfoods</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/nutritie/superfoods/acai">Acai</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/superfoods/altele">Altele</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/superfoods/cacao">Cacao</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/superfoods/canepa">Canepa</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/superfoods/goji">Goji</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/superfoods/maca">Maca</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/superfoods/spirulina">Spirulina</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/nutritie/suplimente-nutritie">Suplimente Nutritie</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-nutritie/aloe-vera">Aloe vera</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-nutritie/altele">Altele</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-nutritie/aminoacizi">Aminoacizi</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-nutritie/antioxidanti">Antioxidanti</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-nutritie/co-enzime-q10">Co-Enzime Q10</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-nutritie/ginko-bilboa">Ginko Bilboa</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-nutritie/omega-3-6-9?sort=noutati&amp;dir=desc">Omega 3, 6, 9</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/nutritie/suplimente-sportive">Suplimente Sportive</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-sportive/bcaa">BCAA</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-sportive/creatina">Creatina</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-sportive/masa-musculara">Masa Musculara</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-sportive/pre-workout">Pre-Workout</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/suplimente-sportive/slabire">Slabire</a></li>
+</ul>
+</li>
+<li class="main-navigation-level1-item"><a href="/list/nutritie/vitamine">Vitamine</a>
+<ul class="category-level2">
+<li class="main-navigation-level2-item"><a href="/list/nutritie/vitamine/multivitamine">Multivitamine</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/vitamine/vitamina-a">Vitamina A</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/vitamine/vitamina-b">Vitamina B</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/vitamine/vitamina-c">Vitamina C</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/vitamine/vitamina-d">Vitamina D</a></li>
+<li class="main-navigation-level2-item"><a href="/list/nutritie/vitamine/vitamina-k">Vitamina K</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="mobileCat-BrandurisiEdituri" class="dropdown"><a href="/page-brandindex-cms-page.brandindex" data-testing-id="BrandurisiEdituri-link">Branduri si Edituri</a><a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#mobileCat-BrandurisiEdituri"><span class="glyphicon"></span></a></li>
+<li id="mobileCat-Skin" class="dropdown"><a href="/cosmetice-cms-summer-fest-cosmetice">Summer Fest</a></li>
+</ul></ul>
+</div>
+</div>
+</div>
+</div>
+</div></header>
+<div class="wrapper">
+<div role="main" class="container main-container"><script type="text/javascript">
+var _cms = new Object();
+_cms.webRoot = "/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD";
+_cms.contentURL = "/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/";
+</script><div class="UDPC"></div><script type="text/javascript">
+var _cms = new Object();
+_cms.webRoot = "/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD";
+_cms.contentURL = "/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/";
+</script><div class="UDPC"></div><div class="marketing-area"></div>
+<div class="row create-account-page" data-testing-id="account-login-page">
+<h1 class="text-center-sm">Cont nou</h1>
+<div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4 login-tile social-media-tile">
+<div class="row"><div class="col-xs-12">
+
+
+
+
+ 
+
+
+
+<script type="text/javascript">
+	var SYNCHRONIZER_TOKEN_NAME = 'SynchronizerToken';
+	var SYNCHRONIZER_TOKEN_VALUE = '2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e';
+</script> 
+<script async="" defer="" src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()" gapi_processed="true">
+</script> 
+<script type="text/javascript">
+var googleAuth;
+function handleClientLoad() {
+gapi.load('client:auth2', initClient);
+}
+function initClient() {
+gapi.client.init({
+'apiKey': 'AIzaSyA1Duuu-IHPbjmrL83w49Hbls8p9DHyDhM',
+'discoveryDocs': ['https://people.googleapis.com/$discovery/rest?version=v1'],
+'clientId': '450612340200-to7t7j06sv6kjir8dtcschrm264ithgr.apps.googleusercontent.com',
+'scope': 'https://www.googleapis.com/auth/userinfo.profile'
+}).then(function() {
+googleAuth = gapi.auth2.getAuthInstance();
+googleAuth.isSignedIn.listen(updateSigninStatus);
+});
+}
+function updateSigninStatus() {
+setSigninStatus();
+}
+function setSigninStatus() {
+var googleUser = googleAuth.currentUser.get();
+var isAuthorized = googleUser.hasGrantedScopes('https://www.googleapis.com/auth/userinfo.profile');
+if (isAuthorized && googleUser.El && googleUser.Zi && googleUser.w3) {
+onSignIn(googleUser);
+}
+}
+function onSignIn(googleUser) {
+var idtoken = googleUser.getAuthResponse().id_token;
+if (idtoken) {
+sendToken(idtoken);
+}
+}
+function sendToken(idtoken) {
+var LoginRedirection = '';
+var TargetPipeline = 'ViewProfileSettings-ViewProfile';
+if (LoginRedirection.includes('RedirectToPDP')) {
+//var LoginToUse = '';
+var pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&LoginType=&LoginRedirection=&RedirectToPDP=true&TargetPipeline=ViewProfileSettings-ViewProfile&Parameter1_Name=&Parameter1_Value=&TargetURLFragment=";
+} else if (LoginRedirection.includes('RedirectToPLP')) {
+var pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&LoginType=&LoginRedirection=&RedirectToPLP=true&TargetPipeline=ViewProfileSettings-ViewProfile&Parameter1_Name=&Parameter1_Value=&Parameter2_Name=&Parameter2_Value=&TargetURLFragment=";
+} else if (LoginRedirection.includes('RedirectToCart')) {
+var pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&LoginType=&LoginRedirection=&RedirectToCart=true&TargetPipeline=ViewProfileSettings-ViewProfile&TargetURLFragment=";
+} else if (LoginRedirection.includes('RedirectToOrderList')) {
+var pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&LoginType=&LoginRedirection=&RedirectToOrderList=true&TargetPipeline=ViewProfileSettings-ViewProfile&TargetURLFragment=";
+} else if (LoginRedirection.includes('RedirectToOrderDetail')) {
+var pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&LoginType=&LoginRedirection=&RedirectToOrderDetail=true&TargetPipeline=ViewProfileSettings-ViewProfile&Parameter1_Name=&Parameter1_Value=&TargetURLFragment=";
+} else if (TargetPipeline !== '') {
+var pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&TargetPipeline=ViewProfileSettings-ViewProfile";
+} else {
+var pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&TargetPipeline=ViewProfileSettings-ViewProfile";
+}
+var object = {
+'provider': 'google',
+'idtoken': idtoken
+};
+location = pipeline + '&Object=' + JSON.stringify(object);
+} 
+function handleAuthClick() {
+if (googleAuth) {
+if (googleAuth.isSignedIn) {
+var flag = googleAuth.isSignedIn.get();
+if (flag) {
+googleAuth.signOut();
+} else {
+googleAuth.signIn();
+}
+}
+} else {
+handleClientLoad();
+}
+}
+</script>
+<script type="text/javascript">
+var FB;
+$(() => {
+var js_sdk = "https://connect.facebook.net/en_US/sdk.js";
+$.ajaxSetup({
+cache: true
+});
+$.getScript(js_sdk, () => {
+FB.init({
+appId: '304259553689244',
+init : true,
+cookie : true,
+xfbml : true,
+version: 'v3.1'
+});
+});
+});
+function facebookUserLogin() {
+FB.login(function(response) {
+var fbResponse = response;
+if (fbResponse.authResponse && fbResponse.status === 'connected' ) {
+// console.log('Welcome! Fetching your information.... ');
+FB.api('/me',{fields:'id,email,first_name,last_name'}, (response) => { 
+var graphResp = fbResponse;
+graphResp.payload = window.btoa(unescape(encodeURIComponent(JSON.stringify(response))));
+pipelineCall(graphResp);
+});
+} else {
+console.log('User cancelled login or did not fully authorize.');
+}
+},{scope: 'public_profile,email'});
+};
+function pipelineCall(responseFeed) {
+var LoginRedirection = '';
+var TargetPipeline = 'ViewProfileSettings-ViewProfile';
+var pipeline;
+if (LoginRedirection.includes('RedirectToPDP')) {
+pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&LoginType=&LoginRedirection=&RedirectToPDP=true&TargetPipeline=ViewProfileSettings-ViewProfile&Parameter1_Name=&Parameter1_Value=&TargetURLFragment=";
+} else if (LoginRedirection.includes('RedirectToPLP')) {
+pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&LoginType=&LoginRedirection=&RedirectToPLP=true&TargetPipeline=ViewProfileSettings-ViewProfile&Parameter1_Name=&Parameter1_Value=&Parameter2_Name=&Parameter2_Value=&TargetURLFragment=";
+} else if (LoginRedirection.includes('RedirectToCart')) {
+pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&LoginType=&LoginRedirection=&RedirectToCart=true&TargetPipeline=ViewProfileSettings-ViewProfile&TargetURLFragment=";
+} else if (LoginRedirection.includes('RedirectToOrderList')) {
+pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&LoginType=&LoginRedirection=&RedirectToOrderList=true&TargetPipeline=ViewProfileSettings-ViewProfile&TargetURLFragment=";
+} else if (LoginRedirection.includes('RedirectToOrderDetail')) {
+pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&LoginType=&LoginRedirection=&RedirectToOrderDetail=true&TargetPipeline=ViewProfileSettings-ViewProfile&Parameter1_Name=&Parameter1_Value=&TargetURLFragment=";
+} else if (TargetPipeline !== '') {
+pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&TargetPipeline=ViewProfileSettings-ViewProfile";
+} else {
+pipeline = "https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewSocialMediaUserAccount-Safe_Start?SynchronizerToken=2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e&TargetPipeline=ViewProfileSettings-ViewProfile";
+}
+responseFeed.provider = "facebook";
+location = pipeline + '&Object=' + JSON.stringify(responseFeed);
+}
+</script><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" title="Închide" aria-label="Închide">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h2 class="modal-title">
+					informație
+				</h2>
+			</div>
+			<div class="modal-body">
+				Autentificarea prin serviciul Yahoo nu mai este disponibilă pe site-ul nostru. Daca ești un utilizator Yahoo, te rugăm să accesezi secțiunea “Ți-ai uitat parola?” pentru resetarea parolei și ulterior te poți loga folosind noua parola. Spor la cumparaturi!
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	$( () => {showText();});
+	function showText() {
+	    $('button.btnSocialMedia.yahoo').on('click', () => {
+		    $('.modal.fade').modal('show');
+		});
+	};
+</script><div class="col-xs-12 social-media-tile">
+<div class="text-center">
+<button type="submit" name="signIn" data-csrf-guarded="" class="btnSocialMedia google" onclick="handleAuthClick()">
+<img src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/img/icons/google.svg" width="49" height="48" alt="google">
+</button>
+<button type="submit" name="signIn" data-csrf-guarded="" class="btnSocialMedia facebook" onclick="facebookUserLogin()">
+<img src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/img/icons/facebook.svg" width="48" height="48" alt="facebook">
+</button>
+<button type="submit" id="yahooText" name="signIn" data-csrf-guarded="" class="btnSocialMedia yahoo">
+<img src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/img/icons/Yahoo.svg" width="66" height="48" alt="yahoo">
+</button>
+</div>
+</div></div></div> 
+</div>
+<div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4 bg-grey login-tile separator"><div class="text-center sideborder">
+<h2><span>Sau creeaza cont nou</span></h2>
+</div></div>
+<div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4 login-tile">
+<div class="row"><div class="col-xs-12"><form method="post" action="https://www.elefant.md/INTERSHOP/web/WFS/elefant-elefantMD-Site/ro_MD/-/MDL/ViewUserAccount-ProcessRegisterUserSimple" class="form-horizontal bv-form" name="PostCheckoutRegisterForm" novalidate="novalidate"><input type="hidden" name="SynchronizerToken" value="2a8bd2c515736559cb065c433a10f45ee131371fe40780fdd81f7317d190422e"><input type="hidden" name="TargetPipeline" value="ViewProfileSettings-ViewProfile"><input type="hidden" name="Parameter4_Name" value="Consent">
+<input type="hidden" name="Parameter4_Value" value="UserRegistration"><div class="form-group clearfix has-feedback has-success">
+<div class="col-xs-12"><div class="radio radio-inline">
+<label>
+<input type="radio" name="PostCheckoutRegisterForm_Title" value="account.salutation.ms.text" required="" data-bv-notempty-message="Please select a title" data-bv-field="PostCheckoutRegisterForm_Title">Dna
+</label>
+</div><div class="radio radio-inline">
+<label>
+<input type="radio" name="PostCheckoutRegisterForm_Title" value="account.salutation.mr.text" required="" data-bv-notempty-message="Please select a title" data-bv-field="PostCheckoutRegisterForm_Title">Dl.
+</label>
+</div><div class="radio radio-inline">
+<label>
+<input type="radio" name="PostCheckoutRegisterForm_Title" value="account.salutation.dr.text" required="" data-bv-notempty-message="Please select a title" data-bv-field="PostCheckoutRegisterForm_Title">Dr.
+</label>
+</div><i class="form-control-feedback glyphicon glyphicon-ok" data-bv-icon-for="PostCheckoutRegisterForm_Title" style=""></i><small class="help-block" data-bv-validator="notEmpty" data-bv-for="PostCheckoutRegisterForm_Title" data-bv-result="VALID" style="display: none;">Please select a title</small></div>
+</div>
+<div class="form-group clearfix has-feedback has-success">
+<div class="col-xs-12">
+<input class="form-control" maxlength="35" type="text" required="" id="PostCheckoutRegisterForm_FirstName" name="PostCheckoutRegisterForm_FirstName" placeholder="Prenume" data-bv-notempty-message="Vă rugăm să introduceți un prenume" forbiddensymbols="" data-bv-forbiddensymbols-message="Only alphanumeric characters are allowed." data-bv-field="PostCheckoutRegisterForm_FirstName"><i class="form-control-feedback bv-no-label glyphicon glyphicon-ok" data-bv-icon-for="PostCheckoutRegisterForm_FirstName" style=""></i>
+<small class="help-block" data-bv-validator="notEmpty" data-bv-for="PostCheckoutRegisterForm_FirstName" data-bv-result="VALID" style="display: none;">Vă rugăm să introduceți un prenume</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="PostCheckoutRegisterForm_FirstName" data-bv-result="VALID" style="display: none;">Please enter less than 35 characters</small><small class="help-block" data-bv-validator="forbiddensymbols" data-bv-for="PostCheckoutRegisterForm_FirstName" data-bv-result="VALID" style="display: none;">Only alphanumeric characters are allowed.</small></div>
+</div>
+<div class="form-group clearfix has-feedback has-success">
+<div class="col-xs-12">
+<input class="form-control" maxlength="35" type="text" required="" id="PostCheckoutRegisterForm_LastName" name="PostCheckoutRegisterForm_LastName" placeholder="Nume" data-bv-notempty-message="Vă rugăm să introduceți un nume de familie" forbiddensymbols="" data-bv-forbiddensymbols-message="Only alphanumeric characters are allowed." data-bv-field="PostCheckoutRegisterForm_LastName"><i class="form-control-feedback bv-no-label glyphicon glyphicon-ok" data-bv-icon-for="PostCheckoutRegisterForm_LastName" style=""></i>
+<small class="help-block" data-bv-validator="notEmpty" data-bv-for="PostCheckoutRegisterForm_LastName" data-bv-result="VALID" style="display: none;">Vă rugăm să introduceți un nume de familie</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="PostCheckoutRegisterForm_LastName" data-bv-result="VALID" style="display: none;">Please enter less than 35 characters</small><small class="help-block" data-bv-validator="forbiddensymbols" data-bv-for="PostCheckoutRegisterForm_LastName" data-bv-result="VALID" style="display: none;">Only alphanumeric characters are allowed.</small></div>
+</div>
+<div class="form-group clearfix has-feedback has-success">
+<div class="col-xs-12">
+<input class="form-control" autocomplete="off" required="" id="PostCheckoutRegisterForm_Login" name="PostCheckoutRegisterForm_Login" value="" placeholder="Adresa de email" type="email" data-bv-notempty-message="Vă rugăm să introduceți o adresă de email." data-bv-emailaddress-message="Te rugăm să introduci o adresă de e-mail validă." data-bv-regexp-message="Adresa de e-mail nu este corectă" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9]{2,})+$" data-bv-field="PostCheckoutRegisterForm_Login"><i class="form-control-feedback bv-no-label glyphicon glyphicon-ok" data-bv-icon-for="PostCheckoutRegisterForm_Login" style=""></i>
+<small class="help-block" data-bv-validator="emailAddress" data-bv-for="PostCheckoutRegisterForm_Login" data-bv-result="VALID" style="display: none;">Te rugăm să introduci o adresă de e-mail validă.</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="PostCheckoutRegisterForm_Login" data-bv-result="VALID" style="display: none;">Vă rugăm să introduceți o adresă de email.</small><small class="help-block" data-bv-validator="regexp" data-bv-for="PostCheckoutRegisterForm_Login" data-bv-result="VALID" style="display: none;">Adresa de e-mail nu este corectă</small></div>
+</div><div class="form-group clearfix has-feedback has-success"><div class="col-xs-12"><input type="password" autocomplete="off" class="form-control" required="" id="PostCheckoutRegisterForm_Password" name="PostCheckoutRegisterForm_Password" placeholder="Parolă nouă" maxlength="256" data-bv-notempty-message="Vă rugăm să introduceți o parolă validă." data-bv-stringlength="true" data-bv-stringlength-min="6" data-bv-stringlength-max="256" data-bv-stringlength-message="Parola ta trebuie să conțină cel puțin 6 caractere ." data-bv-regexp="true" data-bv-regexp-regexp=".*" data-bv-regexp-message="Parola dvs. trebuie să includă caractere atât numerice și alfabetice. Nu trebuie să conțină caractere goale." data-bv-field="PostCheckoutRegisterForm_Password"><i class="form-control-feedback bv-no-label glyphicon glyphicon-ok" data-bv-icon-for="PostCheckoutRegisterForm_Password" style=""></i><small class="help-block" data-bv-validator="notEmpty" data-bv-for="PostCheckoutRegisterForm_Password" data-bv-result="VALID" style="display: none;">Vă rugăm să introduceți o parolă validă.</small><small class="help-block" data-bv-validator="regexp" data-bv-for="PostCheckoutRegisterForm_Password" data-bv-result="VALID" style="display: none;">Parola dvs. trebuie să includă caractere atât numerice și alfabetice. Nu trebuie să conțină caractere goale.</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="PostCheckoutRegisterForm_Password" data-bv-result="VALID" style="display: none;">Parola ta trebuie să conțină cel puțin 6 caractere .</small></div><div class="hidden"><small class="input-help">Minim 6 caractere , trebuie să includă numere și litere, fără spații</small></div></div><div class="form-group clearfix has-feedback"><div class="col-xs-12"><input type="password" autocomplete="off" class="form-control" id="PostCheckoutRegisterForm_RetypedPassword" name="PostCheckoutRegisterForm_RetypedPassword" placeholder="Repeta parola" required="" data-bv-notempty-message="Vă rugăm să introduceți o parolă valabilă Confirmați." data-bv-identical="true" data-bv-identical-field="PostCheckoutRegisterForm_Password" data-bv-identical-message="Parolele nu coincid" data-bv-field="PostCheckoutRegisterForm_RetypedPassword"><i class="form-control-feedback bv-no-label" data-bv-icon-for="PostCheckoutRegisterForm_RetypedPassword" style="display: none;"></i><small class="help-block" data-bv-validator="identical" data-bv-for="PostCheckoutRegisterForm_RetypedPassword" data-bv-result="NOT_VALIDATED" style="display: none;">Parolele nu coincid</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="PostCheckoutRegisterForm_RetypedPassword" data-bv-result="NOT_VALIDATED" style="display: none;">Vă rugăm să introduceți o parolă valabilă Confirmați.</small></div><div class="hidden"></div></div><div class="communication-settings clearfix top-buffer">
+<div class="row">
+<div class="col-xs-6">
+<h3>Preferinte de comunicare:</h3>
+</div>
+<div class="col-xs-6">
+<a class="btn btn-primary select-all" id="selectAll" href="javascript:void(0);">Toate</a>
+<script>
+$(document).ready(function () {
+$('body').on('click', '#selectAll', function () {
+if ($(this).hasClass('allChecked')) {
+$('input[type="checkbox"]', '.communication-settings').prop('checked', false);
+} else {
+$('input[type="checkbox"]', '.communication-settings').prop('checked', true);
+}
+$(this).toggleClass('allChecked');
+})
+});
+</script>
+</div>
+</div>
+<div class="col-sm-12">
+<div class="form-group">
+<div class="checkbox shift-right">
+<label>Newsletter<input type="checkbox" id="AccountCommunicationPreferences_NewsletterFlag" name="AccountCommunicationPreferences_NewsletterFlag">
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox shift-right">
+<label>SMS<input type="checkbox" id="AccountCommunicationPreferences_SmsFlag" name="AccountCommunicationPreferences_SmsFlag">
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox shift-right">
+<label>
+<input type="checkbox" id="AccountCommunicationPreferences_ElefantPremiumFlag" name="AccountCommunicationPreferences_ElefantPremiumFlag">Elefant Premium</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox shift-right">
+<label>
+<input type="checkbox" id="AccountCommunicationPreferences_EmailPersonalizatFlag" name="AccountCommunicationPreferences_EmailPersonalizatFlag">E-mail personalizat</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox shift-right">
+<label>
+<input type="checkbox" id="AccountCommunicationPreferences_SmsPersonalizatFlag" name="AccountCommunicationPreferences_SmsPersonalizatFlag">SMS personalizat</label>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="form-group clearfix has-feedback">
+<div class="col-xs-12">
+<div class="checkbox">
+<label>
+<input type="checkbox" required="" id="PostCheckoutRegisterForm_TermsAndConditions" name="PostCheckoutRegisterForm_TermsAndConditions" data-bv-notempty-message="Trebuie să fiți de acord cu termenii pentru a continua." data-bv-field="PostCheckoutRegisterForm_TermsAndConditions">
+<small>Sunt de acord cu Termenii și Condițiile si Politica de Prelucrare a Datelor Personale elefant.ro</small>
+</label>
+</div><i class="form-control-feedback" data-bv-icon-for="PostCheckoutRegisterForm_TermsAndConditions" style="display: none;"></i>
+<small class="help-block" data-bv-validator="notEmpty" data-bv-for="PostCheckoutRegisterForm_TermsAndConditions" data-bv-result="NOT_VALIDATED" style="display: none;">Trebuie să fiți de acord cu termenii pentru a continua.</small></div>
+</div>
+<div class="form-group">
+<div class="col-xs-12">
+<button type="submit" class="btn btn-primary btn-block" value="Login" name="login">Creează cont</button>
+</div>
+</div>
+<span>Ai deja cont?&nbsp;
+<a class="text-center cancel-registration" href="https://www.elefant.md/login">Conectare</a>
+</span><button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button></form></div></div> 
+</div>
+</div></div>
+</div>
+<footer data-testing-id="section-footer"><div class="clearfix"><div id="Pagelet_QSsKKgAHw.YAAAFm_6wNuosl" class="content-container hidden-xs hidden-sm hidden-md  container footer-columns"><div id="Pagelet_.XMKKgAHzDoAAAFmwqwNuosl" class="content-container  col-lg-5ths"><h3>Nou pe elefant.md</h3>
+<ul>
+<li><a title="Ceasuri de dama" href="/list/ceasuri/filters/sex-Femei">Ceasuri&nbsp;de dama</a></li>
+<li><a title="Ceasuri barbatesti" href="/list/ceasuri/filters/sex-Barbati">Ceasuri barbatesti</a></li>
+<li><a title="Parfumuri pentru femei" href="/list/parfumuri/filters/sex-Femei">Parfumuri pentru femei</a></li>
+<li><a title="Parfumuri pentru barbati" href="/list/parfumuri/filters/sex-Barbati">Parfumuri pentru barbati</a></li>
+<li><a title="Produse cosmetice" href="/list/cosmetice">Produse cosmetice</a></li>
+<li><a title="Produse machiaj" href="/list/cosmetice/machiaj">Produse machiaj</a></li>
+</ul></div>
+<div id="Pagelet_8O4KKgAHJR8AAAFmC60Nuosl" class="content-container  col-lg-5ths"><h3>Top&nbsp;Parfumuri</h3>
+<ul>
+<li><a href="/list/parfumuri/filters/brand-Calvin+Klein?sort=bestseller">Parfumuri Calvin Klein</a></li>
+<li><a href="/list/parfumuri/filters/brand-Hugo+Boss?sort=bestseller">Parfumuri Hugo Boss</a></li>
+<li><a href="/list/parfumuri/filters/brand-Nina+Ricci?sort=bestseller">Parfumuri Nina Ricci</a></li>
+<li><a href="/list/parfumuri/filters/brand-Bvlgari?sort=bestseller">Parfumuri Bvlgari</a></li>
+<li><a href="/list/parfumuri/filters/brand-Davidoff?sort=bestseller">Parfumuri Davidoff</a></li>
+<li><a href="/list/parfumuri/filters/brand-Paco+Rabanne?sort=bestseller">Parfumuri Paco Rabanne</a></li>
+</ul></div>
+<div id="Pagelet_fdoKKgAHbroAAAFmP60Nuosl" class="content-container  col-lg-5ths"><h3>Top Ceasuri</h3>
+<ul>
+<li><a title="Ceasuri Fossil" href="/list/ceasuri/filters/brand-Fossil?sort=bestseller">Ceasuri&nbsp;Fossil</a></li>
+<li><a href="/list/ceasuri/filters/brand-Casio?sort=bestseller">Ceasuri Casio</a></li>
+<li><a href="/list/ceasuri/filters/brand-Timex?sort=bestseller">Ceasuri Timex</a></li>
+<li><a href="/list/ceasuri/filters/brand-U.S.+Polo+ASSN.?sort=bestseller">Ceasuri U.S. POLO ASSN.</a></li>
+<li><a title="Festina" href="/list/ceasuri/filters/brand-Festina?sort=bestseller">Ceasuri Festina</a></li>
+<li><a title="Stuhrling Original" href="/list/ceasuri/filters/brand-Stuhrling+Original?sort=bestseller">Ceasuri Stuhrling Original</a></li>
+</ul></div>
+<div id="Pagelet_pIEKKgAHZ80AAAFmTa0Nuosl" class="content-container  col-lg-5ths"><h3>Top Cosmetice</h3>
+<ul>
+<li><a href="/list/cosmetice/filters/brand-Dermacol?sort=bestseller">Cosmetice&nbsp;Dermacol</a></li>
+<li><a href="/list/cosmetice/filters/brand-Revlon?sort=bestseller">Cosmetice&nbsp;Revlon</a></li>
+<li><a href="/list/cosmetice/filters/brand-Maybelline+NY?sort=bestseller">Cosmetice Maybelline NY</a></li>
+<li><a href="/list/cosmetice/filters/brand-Batiste?sort=bestseller">Cosmetice Batiste</a></li>
+<li><a href="/list/cosmetice/filters/brand-LOreal+Professionnel?sort=bestseller">Cosmetice LOreal Professionnel</a></li>
+<li><a href="/list/cosmetice/filters/brand-Christian+Dior?sort=bestseller">Cosmetice&nbsp;Christian Dior</a></li>
+</ul></div>
+<div id="Pagelet_LasKKgAHOaQAAAFmT60Nuosl" class="content-container  col-lg-5ths"><h3>Top Jucarii &amp; Copii</h3>
+<ul>
+<li><a title="LEGO" href="/list/jucarii,-copii-&amp;-bebe/filters/brand-LEGO?sort=bestseller">LEGO</a></li>
+<li><a href="/list/jucarii,-copii-&amp;-bebe/filters/brand-Kosmos?sort=bestseller">Catan</a></li>
+<li><a href="/list/jucarii,-copii-&amp;-bebe/filters/brand-Barbie?sort=bestseller">Barbie</a></li>
+<li><a title="My little Pony" href="/list/jucarii,-copii-&amp;-bebe/filters/brand-My+Little+Pony?sort=bestseller">My little Pony</a></li>
+<li><a href="/list/jucarii,-copii-&amp;-bebe/filters/brand-Hasbro+Games?sort=bestseller">Hasbro Games</a></li>
+<li><a href="/list/jucarii,-copii-&amp;-bebe/filters/brand-Disney?sort=bestseller">Disney</a></li>
+</ul></div>
+</div>
+<div id="Pagelet__MgKKgAHm7AAAAFmua0Nuosl" class="content-container  container footer-top"><div id="Pagelet_uTQKKgAHzjUAAAFmv60Nuosl" class="content-container hidden-xs hidden-sm col-md-4 col-lg-4  "></div>
+<div id="Pagelet_19MKKgAHpJUAAAFmiq0Nuosl" class="content-container col-xs-12 col-sm-12 col-md-4 col-lg-4  "><ul class="list-inline">
+<li><a title="Despre noi" href="https://www.elefant.md/page.aboutus-cms-page.aboutus">Despre noi</a></li>
+<!--
+<li><a href="#">Autori</a></li>
+<li><a href="#">Edituri</a></li>
+-->
+<li><a title="Contact" href="https://www.elefant.md/helpdesk/contact-us">Contact</a></li>
+</ul></div>
+<div id="Pagelet_Z74KKgAHPDwAAAFm6a0Nuosl" class="content-container hidden-xs hidden-sm col-md-4 col-lg-4  "><a class="icon icon-facebook" href="https://www.facebook.com/elefantmoldova/">&nbsp;</a>
+<a class="icon icon-instagram" href="https://www.instagram.com/elefantmd/">&nbsp;</a></div>
+</div>
+<div id="Pagelet_NI8KKgAH64kAAAFmZK0Nuosl" class="content-container  container footer-mid text-center"><h3>SUPORT</h3>
+<a class="btn-contact" href="mailto:contact@elefant.md"><span class="envelope"></span>contact@elefant.md</a><a class="btn-contact" href="https://www.elefant.md/helpdesk/faq"><span>&nbsp;</span><span class="question-sign"></span>Intrebari frecvente</a></div>
+<div id="Pagelet_zLAKKgAH004AAAFmjawNuosl" class="content-container  container footer-bottom text-center"><ul class="list-inline">
+<li><a href="https://www.elefant.md/helpdesk/safety-security-privacy/terms-and-conditions">Termeni si conditii</a></li>
+<li><a href="https://www.elefant.md/cookies-cms-page.helpdesk.cookies">Cookies</a></li>
+</ul>
+<p><small><a href="http://www.consumator.gov.md/">APC&nbsp;-&nbsp;Agentia pentru Protectia Consumatorului</a><br>( Info consumator:&nbsp;373 22 741 464 )</small></p></div>
+</div></footer><script type="text/javascript" src="/INTERSHOP/static/WFS/elefant-elefantMD-Site/-/-/ro_MD/js/promotion-tracking.js"></script><iframe height="0" width="0" style="display: none; visibility: hidden;" src="//9423167.fls.doubleclick.net/activityi;src=9423167;type=invmedia;cat=allvi0;ord=3111090767998;gtm=2wg8e1;auiddc=1005617083.1566827063;~oref=https%3A%2F%2Fwww.elefant.md%2Fnew-account%3FTargetPipeline%3DViewProfileSettings-ViewProfile?"></iframe>
+
+<script type="text/javascript" id="">processNodes(document,"*[class*\x3dprice],*[class*\x3dsub-total],*[id*\x3dshipping-cost]",processPriceNode);processNodes(document,"*[class*\x3dold-price]",processOldPriceNode);observeMutation(".product-list-item.lazy");function observeMutation(a){a=document.querySelectorAll(a);for(var b=0;b<a.length;b++)observeNodeMutation(a[b])}function observeNodeMutation(a){var b=new MutationObserver(observerCallback),c={childList:!0};b.observe(a,c)}
+function observerCallback(a,b){for(var c=0;c<a.length;c++)try{0<a[c].addedNodes.length&&processMutationTarget(a[c].target)}catch(d){console.log(d)}finally{b.disconnect()}}function processMutationTarget(a){processNodes(a,"*[class*\x3dold-price]",processOldPriceNode);processNodes(a,"*[class*\x3dprice]",processPriceNode)}function processNodes(a,b,c){a=a.querySelectorAll(b);for(b=0;b<a.length;b++){var d=a[b];c(d)}}function processPriceNode(a){a.innerHTML=formatPrice(a.innerHTML)}
+function processOldPriceNode(a){a.style.cssText="text-decoration: line-through"}function formatPrice(a){a=a.replace("RRP:","").replace(/,0 /g," ").replace(/leu/g,"lei");return a=a.replace(/,(\d+)/g,",\x3csup\x3e$1\x3c/sup\x3e")};</script><script type="text/javascript" id="" charset="UTF-8" src="//cdn.segmentify.com/b9f842b7-c7f4-499e-9e47-9891d12cc7e7/segmentify.js"></script><script type="text/javascript" id="">var chatDiv=document.createElement("div");chatDiv.className="fb-customerchat";chatDiv.setAttribute("page_id","605487916321527");chatDiv.setAttribute("theme_color","#7ed321");chatDiv.setAttribute("greeting_dialog_display","hide");document.body.appendChild(chatDiv);window.fbAsyncInit=function(){FB.init({xfbml:!0,version:"v3.2"})};
+(function(a,b,c){var d=a.getElementsByTagName(b)[0];a.getElementById(c)||(a=a.createElement(b),a.id=c,a.src="https://connect.facebook.net/ro_RO/sdk/xfbml.customerchat.js",d.parentNode.insertBefore(a,d))})(document,"script","facebook-jssdk");</script>
+
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","2715358855200945");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2715358855200945&amp;ev=PageView&amp;noscript=1"></noscript>
+
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","//connect.facebook.net/en_US/fbevents.js");fbq("init","1853275114939739");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1853275114939739&amp;ev=PageView&amp;noscript=1"></noscript>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+<script type="text/javascript" id="" src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script><iframe id="apiproxy58abe70c9ca2985d0fa40ef8cf664975b94ca2050.1186626705" name="apiproxy58abe70c9ca2985d0fa40ef8cf664975b94ca2050.1186626705" src="https://content-people.googleapis.com/static/proxy.html?usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.tkLGB8oygGw.O%2Fam%3DwQE%2Fd%3D1%2Frs%3DAGLTcCOVrdiUrdoKYhlUTq9WIvZT-VXTAA%2Fm%3D__features__#parent=https%3A%2F%2Fwww.elefant.md&amp;rpctoken=484477739" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px; display: none;"></iframe><iframe id="ssIFrame_google" sandbox="allow-scripts allow-same-origin" aria-hidden="true" frame-border="0" style="position: absolute; width: 1px; height: 1px; left: -9999px; top: -9999px; right: -9999px; bottom: -9999px; display: none;" src="https://accounts.google.com/o/oauth2/iframe#origin=https%3A%2F%2Fwww.elefant.md&amp;rpcToken=687791301.4899145"></iframe><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div><iframe name="fb_xdm_frame_https" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://staticxx.facebook.com/connect/xd_arbiter.php?version=44#channel=fb29be2bf6dd74&amp;origin=https%3A%2F%2Fwww.elefant.md" style="border: none;"></iframe></div><div></div></div><div class="fb-customerchat fb_invisible_flow fb_iframe_widget" page_id="605487916321527" theme_color="#7ed321" greeting_dialog_display="hide" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=304259553689244&amp;container_width=0&amp;greeting_dialog_display=hide&amp;locale=ro_RO&amp;page_id=605487916321527&amp;sdk=joey&amp;theme_color=%237ed321"><span style="vertical-align: bottom; width: 1000px; height: 0px;"><iframe name="f34f2fa88c90628" width="1000px" height="1000px" title="" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v3.1/plugins/customerchat.php?app_id=304259553689244&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Dfdb8cf287447e%26domain%3Dwww.elefant.md%26origin%3Dhttps%253A%252F%252Fwww.elefant.md%252Ffb29be2bf6dd74%26relation%3Dparent.parent&amp;container_width=0&amp;greeting_dialog_display=hide&amp;locale=ro_RO&amp;page_id=605487916321527&amp;sdk=joey&amp;theme_color=%237ed321" style="border: none; visibility: visible; width: 288pt; height: 211px; border-radius: 9pt; bottom: 63pt; padding: 0px; position: fixed; right: 9pt; top: auto; z-index: 2147483647; max-height: 0px;" class="" data-testid="dialog_iframe"></iframe></span></div><div class="fb_dialog  fb_dialog_advanced fb_customer_chat_bubble_animated_no_badge fb_customer_chat_bubble_pop_in" style="background: none; border-radius: 50%; bottom: 18pt; display: inline; height: 45pt; padding: 0px; position: fixed; right: 18pt; top: auto; width: 45pt; z-index: 2147483646;"><div class="fb_dialog_content" style="background: none;"><iframe name="blank_f34f2fa88c90628" width="60px" tabindex="-1" data-testid="bubble_iframe" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v3.1/plugins/customer_chat/bubble" style="border: none;"></iframe></div></div></div>
+<script type="text/javascript" id="">window.addEventListener("load",function(){window.cookieconsent.initialise({palette:{popup:{background:"#efefef",text:"#404040"},button:{background:"#8ec760",text:"#ffffff"}},content:{message:"Acest site foloseste cookies. Continuarea navigarii presupune ca esti de acord cu utilizarea cookie-urilor.",dismiss:"Am inteles",link:"Afla detalii",href:"https://www.elefant.md/cookies-cms-page.helpdesk.cookies"}})});</script>
+<style>
+.cc-banner.cc-bottom {
+    padding-right: 10em;
+}
+</style></body></html>
