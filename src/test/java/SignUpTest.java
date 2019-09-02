@@ -14,10 +14,10 @@ public class SignUpTest {
     private SignUpPage page;
     private  WebDriver driver;
 
-    @Before
-    public static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "D:\\Testing&Programming\\Java\\chromedriver.exe");
-    }
+//    @Before
+//    public void setUp() {
+//        System.setProperty("webdriver.chrome.driver", "D:\\Testing&Programming\\Java\\chromedriver.exe");
+//    }
 
     @Test
     public void createAccount() throws InterruptedException {

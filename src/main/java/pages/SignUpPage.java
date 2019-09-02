@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.chrome.ChromeDriver;
 import steps.GeneralStepDefs;
 
 import java.util.ArrayList;
@@ -10,13 +12,13 @@ import java.util.List;
 
 public class SignUpPage {
 
-    private final WebDriver driver;
-
-    private GeneralStepDefs generalStepDefs;
-
     public SignUpPage(WebDriver driver) {
         this.driver = driver;
     }
+
+    private final WebDriver driver;
+
+    GeneralStepDefs generalStepDefs;
 
     public static String invalideEmail = "Un utilizator cu adresa de e-mail există deja. Vă rugăm să verificați informațiile cu exactitate sau introduceți o altă adresă de e-mail.";
 
@@ -41,7 +43,11 @@ public class SignUpPage {
     private By connectToAccount = By.xpath("//button[contains(@class, 'btn btn-primary btn-block')]");
     private String inalideEmailError = "//div[contains(@class, 'alert alert-danger')]/div";
 
+
     public SignUpPage openPage() {
+        System.setProperty("webdriver.chrome.driver", "D:\\Testing&Programming\\Java\\chromedriver.exe");
+        WebDriver driver  = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("https://www.elefant.md");
         return this;
     }
