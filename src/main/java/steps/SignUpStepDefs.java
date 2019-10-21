@@ -1,70 +1,131 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
-import pages.SignUpPage;
+import org.assertj.core.api.Assertions;
+import pacages.pages.SignUpPage;
 
 public class SignUpStepDefs {
 
     SignUpPage signUpPage;
 
+    @Step
+    public void openSignUpPage() {
+        signUpPage.open();
+    }
+
     @Step("User types email [0]")
-    public void typeEmail (String mail) {
+    public void typeEmail(String mail) {
         signUpPage.typeEmail(mail);
     }
 
-    @Step("User types first name [0]")
-    public void typeFirstName (String name) {
+    @Step
+    public void typeFirstName(String name) {
         signUpPage.typeFirstName(name);
     }
 
-    @Step("User types last name [0]")
-    public void typeLastName (String name) {
+    @Step
+    public void typeLastName(String name) {
         signUpPage.typeLastName(name);
     }
 
-    @Step("User types password [0]")
-    public void typePassword (String password) {
+    @Step
+    public void typePassword(String password) {
         signUpPage.typePassword(password);
     }
 
-    @Step("User types confirm password [0]")
-    public void typeConfirmPassword (String password) {
+    @Step
+    public void typeConfirmPassword(String password) {
         signUpPage.typeConfirmPassword(password);
     }
 
-    @Step("User chose the sex [0]")
+    @Step
     public void choseTheSex(String sex) {
         signUpPage.choseSex(sex);
     }
 
-    @Step("User chose comunication way [0]")
-    public void choseComunicationWay (String comunication) {
+    @Step
+    public void choseComunicationWay(String comunication) {
+        signUpPage.evaluateJavascript("window.scrollTo(0, 500);");
         signUpPage.selectSeparateComunicationPreferences(comunication);
     }
 
-    @Step("User chose all comunication ways")
-    public void choseAllComunicationWays () {
+    @Step
+    public void scrollDown(int times) {
+
+        for(int i = 0; i <= times; i++) {
+            signUpPage.evaluateJavascript("window.scrollTo(0, 500);");
+        }
+    }
+
+    @Step
+    public void scrollUp(int times) {
+
+        for(int i = 0; i <= times; i++) {
+            signUpPage.evaluateJavascript("window.scrollTo(0, -500);");
+        }
+    }
+
+    @Step
+    public void choseAllComunicationWays() {
         signUpPage.selectAllComunicationPreferences();
     }
 
-    @Step("User set check box")
-    public void setCheckBox () {
+    @Step
+    public void setCheckBox() {
         signUpPage.clickOnCheckBox();
     }
 
-    @Step("User click on create account")
-    public void createAccount () {
+    @Step
+    public void createAccount() {
         signUpPage.creatAccount();
     }
 
-    @Step("User click on connect button")
+    @Step
     public void clickConnectButton() {
         signUpPage.clickConnectButton();
     }
 
-    @Step("User click on create new account")
+    @Step
     public void clickOnCreateNewAccount() {
         signUpPage.clickOnCreateNewAccount();
     }
 
+    @Step
+    public String getInvalidMailError() {
+        return signUpPage.invalideEmailError();
+    }
+
+
+    @Step
+    public void shouldSeeTheError(final String message) {
+        Assertions.assertThat(signUpPage.isErrorVisible(message))
+                .as("The error: '" + message + "' should be visible")
+                .isTrue();
+    }
+
+    @Step
+    public void shouldNotSeeTheError(final String message) {
+        Assertions.assertThat(signUpPage.isErrorVisible(message))
+                .as("The error: '" + message + "' should not be visible")
+                .isFalse();
+    }
+
+//    @Step
+//    public void shouldSeeTheErrorsCount(final int count) {
+//        Assertions.assertThat(signUpPage.AllErrorMessages())
+//                .as("The errors count is: '" + count + "'")
+//                .hasSize(count);
+//    }
+
+    @Step
+    public void valuesShouldBeEqual(final String actual, final String expected) {
+        Assertions.assertThat(actual)
+                .as("The actual result: '" + actual + "' should be equal with expected result: '" + expected + "'")
+                .isEqualTo(expected);
+    }
+
+    @Step
+    public void shouldWait(final int milliseconds) throws InterruptedException {
+        Thread.sleep(milliseconds);
+    }
 }
