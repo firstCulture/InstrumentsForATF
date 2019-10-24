@@ -1,4 +1,4 @@
-package steps;
+package steps.serenity;
 
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.Assertions;

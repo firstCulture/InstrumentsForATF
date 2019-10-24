@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import pacages.pages.SignUpPage;
 import pacages.pages.util.GeneralStepDefs;
-import steps.SignUpStepDefs;
+import steps.serenity.SignUpStepDefs;
 
 @RunWith(SerenityRunner.class)
 public class WhenSignUpTest {
@@ -83,7 +83,7 @@ public class WhenSignUpTest {
         steps.shouldWait(2000);
 
         steps.shouldSeeTheError("Vă rugăm să introduceți o parolă validă.");
-        steps.shouldSeeTheError(" Vă rugăm să introduceți o parolă valabilă Confirmați.");
+        steps.shouldSeeTheError("Vă rugăm să introduceți o parolă valabilă Confirmați.");
 
     }
 
