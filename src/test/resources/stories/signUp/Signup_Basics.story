@@ -1,10 +1,12 @@
+Story: Login Page
+
 Narrative:
-This story cover basic tests of signup
+This story cover basic testpackage of signup
 
 Scenario: Validate existing email error
 Given user opens signup page
-When user clicks on "connect" button
-And user clicks on "new account" button
+When user clicks on connect button
+And user clicks on new account button
 And user type "Alex" first name
 And user type "Ciobanu" last name
 And user type "caldare_alex@mail.ru" email
@@ -19,8 +21,8 @@ Then user should see the error "Un utilizator cu adresa de e-mail există deja. 
 
 Scenario: Validate empty first name error
 Given user opens signup page
-When user clicks on "connect" button
-And user clicks on "new account" button
+When user clicks on connect button
+And user clicks on new account button
 And user type "Ciobanu" last name
 And user type "caldare_test@mail.ru" email
 And user type "123tarakan" password
@@ -35,8 +37,8 @@ Then user should see the error "Vă rugăm să introduceți un prenume"
 
 Scenario: Validate empty password error
 Given user opens signup page
-When user clicks on "connect" button
-And user clicks on "new account" button
+When user clicks on connect button
+And user clicks on new account button
 And user type "Alex" first name
 And user type "Ciobanu" last name
 And user type "caldare_test@mail.ru" email
@@ -46,4 +48,4 @@ And user set "E-mail personalizat" communication way
 And user set the check box
 And user should wait "2" seconds
 Then user should see the error "Vă rugăm să introduceți o parolă validă."
-Then user should see the error "Vă rugăm să introduceți o parolă valabilă Confirmați."
+And user should see the error "Vă rugăm să introduceți o parolă valabilă Confirmați."

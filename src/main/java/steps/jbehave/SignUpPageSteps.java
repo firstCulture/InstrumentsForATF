@@ -13,16 +13,16 @@ public class SignUpPageSteps {
     SignUpStepDefs signUpStepDefs;
 
     @Given("user opens signup page")
-    public void openThePage() {
+    public void givenUserOpensSignupPage() {
         signUpStepDefs.openSignUpPage();
     }
 
-    @When("user clicks on \"connect\" button")
+    @When("user clicks on connect button")
     public void clicksOnConnectButton() {
         signUpStepDefs.clickConnectButton();
     }
 
-    @When("user clicks on \"new account\" button")
+    @When("user clicks on new account button")
     public void clicksOnNewAccountButton() {
         signUpStepDefs.clickOnCreateNewAccount();
     }
@@ -64,12 +64,12 @@ public class SignUpPageSteps {
 
     @When("user set \"$communicationWay\" communication way")
     public void setCommunicationWay(String communicationWay) {
-        signUpStepDefs.choseComunicationWay(communicationWay);
+        signUpStepDefs.choseCommunicationWay(communicationWay);
     }
 
     @When("user set all communication ways")
     public void setAllCommunicationWays() {
-        signUpStepDefs.choseAllComunicationWays();
+        signUpStepDefs.choseAllCommunicationWays();
     }
 
     @When("user set the check box")

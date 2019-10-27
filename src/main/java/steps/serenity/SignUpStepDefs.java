@@ -44,7 +44,7 @@ public class SignUpStepDefs {
     }
 
     @Step
-    public void choseComunicationWay(String comunication) {
+    public void choseCommunicationWay(String comunication) {
         signUpPage.evaluateJavascript("window.scrollTo(0, 500);");
         signUpPage.selectSeparateComunicationPreferences(comunication);
     }
@@ -66,7 +66,7 @@ public class SignUpStepDefs {
     }
 
     @Step
-    public void choseAllComunicationWays() {
+    public void choseAllCommunicationWays() {
         signUpPage.selectAllComunicationPreferences();
     }
 
